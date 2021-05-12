@@ -1,23 +1,28 @@
 // document.getElementById("button").addEventListener("click", generarExcusa());
-window.onload = function () { generarExcusa(); }
-    
-    
-    let generarExcusa =() => {
-    var excusa = "";
-    
-    // excusas...
-    let a = ["Mi", "El"];
-    let b = ["Perro", "Auto", "Jardinero", "Guitarra", "Iguana"];
-    let c = ["se comio", "vendio"];
-    let d = ["mi tarea", "mi telefono", "mi novio", "mi comida" ];
-    let e = ["esta mañana.", "esta tarde.", "recien.", "hace un rato."];
-    // indice
-    let aInd = Math.floor(Math.random() * a.length);
-    let bInd = Math.floor(Math.random() * b.length);
-    let cInd = Math.floor(Math.random() * c.length);
-    let dInd = Math.floor(Math.random() * d.length);
-    let eInd = Math.floor(Math.random() * e.length);
-    var excusa = a[aInd] + ' ' + b[bInd] + ' ' + c[cInd] + ' ' + d[dInd] + ' ' + e[eInd];
+window.onload = function () {
+    generateExcuse();
+};
 
-    return document.querySelector('#excusa').innerHTML = excusa;
-}
+let generateExcuse = () => {
+    var excuse = '';
+
+    // excusas...
+    let pronoun = ['Mi', 'El'];
+    let noun = ['Perro', 'Auto', 'Jardinero', 'Guitarra', 'Iguana'];
+    let action = ['se comio', 'vendio'];
+    let possession = ['mi tarea', 'mi telefono', 'mi novio', 'mi comida'];
+    let time = ['esta mañana.', 'esta tarde.', 'recien.', 'hace un rato.'];
+    // indice
+    let pronounIndex = Math.floor(Math.random() * pronoun.length);
+    let nounIndex = Math.floor(Math.random() * noun.length);
+    let actionIndex = Math.floor(Math.random() * action.length);
+    let possessionIndex = Math.floor(Math.random() * possession.length);
+    let timeIndex = Math.floor(Math.random() * time.length);
+    excuse = pronoun[pronounIndex]
+        .concat(' ', noun[nounIndex])
+        .concat(' ', action[actionIndex])
+        .concat(' ', possession[possessionIndex])
+        .concat(' ', time[timeIndex]);
+
+    return (document.querySelector('#excusa').innerHTML = excuse);
+};
